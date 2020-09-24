@@ -1,3 +1,8 @@
-<div *ngFor="let equipment of equipments">
-  {{ equipment.description }}
+<div class="container">
+  <div *ngFor="let equipment of equipments">
+    <!-- <div *ngIf={{equipment.equipment_photos.length!==0}} > -->
+    <img src={{equipment.equipment_photos[0].full_size_url}} alt="photo">
+    {{ equipment.description }}
+    {{ equipment.manufacturer }}
+  </div>
 </div>
