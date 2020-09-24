@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Equipment } from '../models/Equipment';
+
+import { EquipmentService } from '../services/equipment.service';
 
 @Component({
   selector: 'app-equipments',
@@ -6,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./equipments.component.css']
 })
 export class EquipmentsComponent implements OnInit {
+  equipments : Equipment[]; 
 
-  constructor() { }
+  constructor(private equipmentService:EquipmentService) { }
 
   ngOnInit(): void {
+    this.equipmentService.getEquipments().subscribe(equipments => {
+      this.equipments = equipments;
+    })
   }
 
 }
