@@ -1,8 +1,26 @@
 <div class="container">
   <div *ngFor="let equipment of equipments">
-    <!-- <div *ngIf={{equipment.equipment_photos.length!==0}} > -->
-    <img src={{equipment.equipment_photos[0].full_size_url}} alt="photo">
-    {{ equipment.description }}
-    {{ equipment.manufacturer }}
+    <div class="wrapper">
+      <div *ngIf="equipment.equipment_photos !== undefined; else noPhotos">
+        <div *ngIf="isArray(equipment.equipment_photos); else noPhotos" >
+          <!-- <img src={{equipment.equipment_photos[0].thumbnail_url}} alt="photo"> -->
+          <img src="{{equipment.equipment_photos[0].thumbnail_url}}" alt="photo">
+          <div class="info">
+            {{ equipment.description }}
+            <button>{{ equipment.manufacturer }}</button>
+          </div>
+        </div>
+      </div>
+      <ng-template #noPhotos >
+        <p>No photo</p>
+        <!-- {{ equipment.description }} -->
+      </ng-template>
+    </div>
+
   </div>
 </div>
+
+
+<!-- <img src={{equipment.equipment_photos[0].full_size_url}} alt="photo"> -->
+    <!-- {{ equipment.manufacturer }} -->
+    <!-- {{ equipment }} -->

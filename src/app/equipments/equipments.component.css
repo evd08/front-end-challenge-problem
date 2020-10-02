@@ -1,0 +1,15 @@
+.wrapper {
+  border: solid 1px lightgray;
+  padding: 20px;
+  display:flex;
+}
+
+.wrapper p {
+  height: 100px;
+}
+
+.container img {
+  width: 100px;
+  height: 100px;
+  border-radius: 20%;
+}

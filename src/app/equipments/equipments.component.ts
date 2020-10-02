@@ -19,4 +19,8 @@ export class EquipmentsComponent implements OnInit {
     })
   }
 
+  isArray(val) {
+    return Array.isArray(val);
+  }
+
 }
